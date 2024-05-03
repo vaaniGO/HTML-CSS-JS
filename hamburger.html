@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="border">
+    <div class="menu-btn">
+        <div class="menu-btn-burger"></div>
+    </div>
+    </div>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .menu-btn{
+        position: relative;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+    }
+    .border{
+        width: 80px;
+        height: 80px;
+        border: 3px solid transparent;
+        border-image: linear-gradient(to right, rgb(56, 97, 232), aqua);
+        border-image-slice: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .menu-btn-burger{
+        width: 50px;
+        height: 6px;
+        background: linear-gradient(to right, rgb(56, 97, 232), aqua);
+        border-radius: 5px;
+        transition: all 1.5s ease-in-out;
+    }
+    .menu-btn-burger::before, .menu-btn-burger::after{
+        content: ' ';
+        position: absolute; 
+        width: 50px;
+        height: 6px;
+        background: linear-gradient(to right, rgb(56, 97, 232), aqua);
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+    }
+    .menu-btn-burger::before{
+        transform: translateY(-16px);
+    }
+    .menu-btn-burger::after{
+        transform: translateY(16px);
+    }
+    /*ANIMATION*/
+    .border.open .menu-btn-burger{
+        background: transparent;
+        box-shadow: none;
+    }
+    .border.open .menu-btn-burger::before{
+        transform: rotate(45deg);
+    }
+    .border.open .menu-btn-burger::after{
+        transform: rotate(-45deg);
+    }
+</style>
+
+<script>
+    const menuBtn= document.querySelector('.border');
+    let menuOpen= false;
+    menuBtn.addEventListener('click', () => {
+        if (!menuOpen){
+            menuBtn.classList.add('open');
+            menuOpen= true;
+        }
+        else {
+            menuBtn.classList.remove('open');
+            menuOpen= false;
+        }
+    });
+</script>
+</body>
+</html>
