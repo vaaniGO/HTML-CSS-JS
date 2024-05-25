@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+</head>
+<body>
+    <p>Amazon shipping calculator</p>
+    <input placeholder="Cost of order" onkeydown="
+    if (event.key === 'Enter') {
+        calcAmt();
+    }
+    " 
+    onkeyup="
+    displayTyping(event);"
+    class="js-cost-input">
+
+    <button onclick="calcAmt();">Calculate</button>
+
+    <p>Your total order cost: $<span class="js-input-amt"></span></p>
+    <p class="js-total-cost"></p>
+
+    <script>
+        //onkeydown occurs when the user presses a key on the keyboard 
+        function calcAmt() {
+            const inputEle = document.querySelector('.js-cost-input');
+            let cost = Number(inputEle.value);
+            if (cost<40) {
+                cost+= 10; 
+            }
+
+            document.querySelector('.js-total-cost').innerHTML = `Your shipping cost: $${cost}`;
+
+        } 
+        function displayTyping(event){
+            let inputEle = event.key; 
+            if (inputEle >= '0' && inputEle <= '9') {
+                document.querySelector('.js-input-amt').innerHTML += inputEle; 
+            }
+            else if (inputEle === 'Backspace') {
+                let orderCost = document.querySelector('.js-input-amt').innerHTML;
+                orderCost = orderCost.substring(0, orderCost.length-1);
+                document.querySelector('.js-input-amt').innerHTML = orderCost;
+            }
+
+        }
+    </script>
+</body>
+</html>
