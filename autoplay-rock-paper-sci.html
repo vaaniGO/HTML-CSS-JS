@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+</head>
+<body>
+    <!-- <p>Youtube Subscribe Button</p>
+    <button onclick="subscribe();" class="js-subscribe-button">Subscribe</button> -->
+
+    <p>Rock Paper Scissors Game with autoplay feature</p>
+    <button onclick="playGame('rock');">Rock</button>
+    <button onclick="playGame('paper');">Paper</button>
+    <button onclick="playGame('scissors');">Scissors</button>
+    <p class="js-score"></p>
+    <p class="js-move"></p>
+    <button onclick="
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScoreElement();
+    ">Reset Score</button>
+    <button class="js-autoplay" onclick="autoplay();">Auto play</button>
+    <style>
+        body{
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            gap: 1rem;
+
+        }
+        button {
+            padding: 2rem;
+            font-size: 1rem;
+            cursor: pointer; 
+            border-radius: 40px;
+            color: #000;
+            width: 264px;
+        }
+        button:hover {
+            background-color: rgb(97, 97, 176);
+            transition: 0.5s ease;
+        }
+
+    </style>
+    <script>
+        // function subscribe(){
+        //     const buttonElement = document.querySelector('.js-subscribe-button');
+        //     //innerText gets innerHTML without extra elements 
+        //     if (buttonElement.innerText === 'Subscribe') {
+        //         buttonElement.innerText = 'Subscribed!';
+        //     }
+        //     else {
+        //         buttonElement.innerText = 'Subscribe';
+        //     }
+        // }
+
+        let score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0, losses: 0, ties: 0
+        };
+
+        updateScoreElement();
+
+        function playGame(playerMove) {
+            const computerMove = pickComputerMove();
+
+            let result = "";
+
+            if (playerMove === 'scissors') {
+                if (computerMove === 'rock') {
+                    result = 'You lose.';
+                }
+                else if (computerMove === 'paper') {
+                    result = 'You win.'
+                }
+                else if (computerMove === 'scissors') {
+                    result = 'Game tied.'
+                }
+            }
+
+            else if (playerMove === 'paper') {
+                if (computerMove === 'rock') {
+                    result = 'You win.';
+                }
+                else if (computerMove === 'paper') {
+                    result = 'Game tied.'
+                }
+                else if (computerMove === 'scissors') {
+                    result = 'You lose.'
+                }
+            }
+
+            else if (playerMove === 'rock') {
+                if (computerMove === 'rock') {
+                    result = 'Game tied.';
+                }
+                else if (computerMove === 'paper') {
+                    result = 'You lose.'
+                }
+                else if (computerMove === 'scissors') {
+                    result = 'You win.'
+                }
+            }
+
+            if (result === 'You win.') {
+                score.wins += 1; 
+            }
+            else if (result === 'You lose.') {
+                score.losses += 1;
+            }
+            else if (result === 'Game tied.') {
+                score.ties += 1; 
+            }
+
+            localStorage.setItem('score', JSON.stringify(score));
+            //localStorage update makes this accessible even after refreshing or navigating away from the page 
+
+            document.querySelector('.js-move').innerText = (`You picked ${playerMove}. Computer Picked ${computerMove}. ${result}`);
+
+            updateScoreElement();
+        }   
+        
+        function pickComputerMove() {
+            const randomNumber = Math.random();
+
+            let computerMove = ' ';
+
+            if (randomNumber >= 0 && randomNumber < 1/3) {
+                computerMove = 'rock';
+            }
+            else if (randomNumber >= 1/3 && randomNumber < 2/3) {
+                computerMove = 'paper';
+            }
+            else if (randomNumber >= 2/3 && randomNumber <= 1) {
+                computerMove = 'scissors';
+            }
+
+            return computerMove; 
+        }
+
+        function updateScoreElement() {
+            document.querySelector('.js-score')
+            .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+        }
+
+        function autoplay() {
+            var btnText = document.querySelector('.js-autoplay').innerHTML; 
+            if (btnText === 'Auto play') {
+                document.querySelector('.js-autoplay').innerHTML = 'Stop playing'; 
+                autoplayInterval = setInterval(() => playGame(pickComputerMove()), 1000); 
+            }
+            else  {
+                document.querySelector('.js-autoplay').innerHTML = 'Auto play'; 
+                clearInterval(autoplayInterval);
+            }
+        }
+    </script>
+
+</body>
+</html>
