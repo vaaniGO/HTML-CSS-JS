@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+         <feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+
+         <title>Mail Filters</title>
+
+         <id>tag:mail.google.com,2008:filters:z0000001730008653632*4365085081838130124,z0000001730008668966*8357290940934081963,z0000001730008710555*5123080779061590725,z0000001730008781702*3387327660921036404</id>
+
+         <updated>2024-10-27T05:59:53Z</updated>
+         <author>
+
+         <name>Vaani Goenka</name>
+
+         <email>vaani.goenka_ug2024@ashoka.edu.in</email>
+         </author>
+  <entry>
+
+             <category term='filter'></category>
+
+             <title>Mail Filter</title>
+
+             <id>tag:mail.google.com,2008:filter:z0000001730008710555*5123080779061590725_0</id>
+
+             <updated>2024-10-27T05:59:53Z</updated>
+
+             <content></content>
+
+             <apps:property name='hasTheWord' value='Psychology'/>
+
+             <apps:property name='label' value='Keywords'/>
+
+             <apps:property name='sizeOperator' value='s_sl'/>
+
+              <apps:property name='sizeUnit' value='s_smb'/>
+
+              </entry>
+  <entry>
+
+             <category term='filter'></category>
+
+             <title>Mail Filter</title>
+
+             <id>tag:mail.google.com,2008:filter:z0000001730008710555*5123080779061590725_1</id>
+
+             <updated>2024-10-27T05:59:53Z</updated>
+
+             <content></content>
+
+             <apps:property name='hasTheWord' value='Computer Science'/>
+
+             <apps:property name='label' value='Keywords'/>
+
+             <apps:property name='sizeOperator' value='s_sl'/>
+
+              <apps:property name='sizeUnit' value='s_smb'/>
+
+              </entry>
+ <entry>
+              <category term='filter'></category>
+              <title>Mail Filter</title>
+              <id>tag:mail.google.com,2008:filter:z0000001730008668966*8357290940934081963</id>
+              <updated>2024-10-27T05:59:53Z</updated>
+              <content></content>
+              <apps:property name='from' value='vaani.goenka_ug2024@ashoka.edu.in, dilip.simeon@ashoka.edu.in, '/>
+              <apps:property name='label' value='Priority'/>
+              <apps:property name='sizeOperator' value='s_sl'/>
+              <apps:property name='sizeUnit' value='s_smb'/>
+              </entry>  <entry>
+
+             <category term='filter'></category>
+
+             <title>Mail Filter</title>
+
+             <id>tag:mail.google.com,2008:filter:z0000001730008710555*5123080779061590725_0</id>
+
+             <updated>2024-10-27T05:59:53Z</updated>
+
+             <content></content>
+
+             <apps:property name='hasTheWord' value='Psychology'/>
+
+             <apps:property name='label' value='Keywords'/>
+
+             <apps:property name='sizeOperator' value='s_sl'/>
+
+              <apps:property name='sizeUnit' value='s_smb'/>
+
+              </entry>
+  <entry>
+
+             <category term='filter'></category>
+
+             <title>Mail Filter</title>
+
+             <id>tag:mail.google.com,2008:filter:z0000001730008710555*5123080779061590725_1</id>
+
+             <updated>2024-10-27T05:59:53Z</updated>
+
+             <content></content>
+
+             <apps:property name='hasTheWord' value='Computer Science'/>
+
+             <apps:property name='label' value='Keywords'/>
+
+             <apps:property name='sizeOperator' value='s_sl'/>
+
+              <apps:property name='sizeUnit' value='s_smb'/>
+
+              </entry>
+</feed>
